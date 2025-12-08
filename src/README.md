@@ -1,17 +1,28 @@
- Salon Backend
+# Products API
 
-This is a simple Express backend for a salon app. It has two routes:
-- GET / → returns { ok: true }
-- GET /health → returns healthy
+## Example GET request
+GET http://localhost:3000/api/products
 
----
+Response:
+[
+  {
+    "id": "1a2b3c",
+    "name": "Sample Product",
+    "price": 19.99
+  }
+]
 
+## Example POST request
+POST http://localhost:3000/api/products
+Body:
+{
+  "name": "New Product",
+  "price": 29.99
+}
 
-## Run Locally
-
-Follow these steps to run the project on your local machine:
-
-### 1. Clone the repository
-```bash
-git clone <your-repo-url>
-cd salon-backend
+Response:
+{
+  "id": "4d5e6f",
+  "name": "New Product",
+  "price": 29.99
+}
