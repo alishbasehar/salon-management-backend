@@ -2,8 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 let products = [
-  { id: 1, name: "Laptop", price: 999 },
-  { id: 2, name: "Phone", price: 599 }
+  
 ];
 
 router.get("/", (req, res) => {

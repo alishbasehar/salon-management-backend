@@ -1,4 +1,6 @@
 
+require("dotenv").config();   // Load .env variables
+
 const express = require("express");
 const app = express();
 const productsRouter = require("./routes/products");
@@ -6,4 +8,8 @@ const productsRouter = require("./routes/products");
 app.use(express.json());
 app.use("/api/products", productsRouter);
 
-app.listen(3000, () => console.log("Server running on port 3000"));
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
