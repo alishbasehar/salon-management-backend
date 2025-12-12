@@ -1,28 +1,27 @@
-# Products API
+# Salon Backend API
 
-## Example GET request
-GET http://localhost:3000/api/products
+This is a simple backend API for managing products in a salon application. It uses **Express.js** for the server and **Firebase Firestore** as the database.
 
-Response:
-[
-  {
-    "id": "1a2b3c",
-    "name": "Sample Product",
-    "price": 19.99
-  }
-]
+---
 
-## Example POST request
-POST http://localhost:3000/api/products
-Body:
-{
-  "name": "New Product",
-  "price": 29.99
-}
+## Features
 
-Response:
-{
-  "id": "4d5e6f",
-  "name": "New Product",
-  "price": 29.99
-}
+- List all products  
+- Add a new product  
+- Get a single product by ID  
+- Fully integrated with Firebase Firestore  
+
+---
+
+## Technologies Used
+
+- **Node.js**  
+- **Express.js**  
+- **Firebase Admin SDK**  
+- **Firestore (Firebase)**  
+- **dotenv** (for environment variables)  
+
+---
+
+## Project Structure
+

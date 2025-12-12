@@ -1,8 +1,8 @@
-
-require("dotenv").config();   // Load .env variables
-
+// index.js
+require("dotenv").config();
 const express = require("express");
 const app = express();
+
 const productsRouter = require("./routes/products");
 
 app.use(express.json());
