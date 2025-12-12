@@ -1,7 +1,7 @@
 
 const express = require("express");
 const router = express.Router();
-const db = require("../firebase");     // Firestore import
+const db = require("../firebase");    
 
 
 router.get("/", async (req, res) => {
