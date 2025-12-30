@@ -2,21 +2,20 @@ const express = require("express");
 const router = express.Router();
 const authMiddleware = require("../middlewares/authMiddleware");
 const roleMiddleware = require("../middlewares/roleMiddleware");
-const servicesHandler = require("../controllers/servicesHandler");
+const customersHandler = require("../controllers/customersHandler");
 
-// Admin only
+// Public route - anyone can create a customer
 router.post(
   "/create",
-  authMiddleware,
-  roleMiddleware("admin"),
-  servicesHandler.createService
+  customersHandler.createCustomer
 );
 
-
+// Admin only - get all customers
 router.get(
   "/",
   authMiddleware,
-  servicesHandler.getServices
+  roleMiddleware("admin"),
+  customersHandler.getCustomers
 );
 
 module.exports = router;
