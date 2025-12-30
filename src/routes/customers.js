@@ -14,7 +14,7 @@ router.post(
 router.get(
   "/",
   authMiddleware,
-  roleMiddleware("admin"),
+
   customersHandler.getCustomers
 );
 
