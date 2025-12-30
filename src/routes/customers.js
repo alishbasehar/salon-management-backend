@@ -1,9 +1,22 @@
 const express = require("express");
 const router = express.Router();
 const authMiddleware = require("../middlewares/authMiddleware");
-const customersHandler = require("../controllers/customersHandler");
+const roleMiddleware = require("../middlewares/roleMiddleware");
+const servicesHandler = require("../controllers/servicesHandler");
 
-router.post("/create", authMiddleware, customersHandler.createCustomer);
-router.get("/", authMiddleware, customersHandler.getCustomers);
+// Admin only
+router.post(
+  "/create",
+  authMiddleware,
+  roleMiddleware("admin"),
+  servicesHandler.createService
+);
+
+
+router.get(
+  "/",
+  authMiddleware,
+  servicesHandler.getServices
+);
 
 module.exports = router;

@@ -1,6 +1,6 @@
 const { db } = require("../config/firebase");
 
-const roleMiddleware = (requiredRole) => {
+const roleMiddleware = (...allowedRoles) => {
   return async (req, res, next) => {
     try {
       const { userId } = req.user;
@@ -8,13 +8,13 @@ const roleMiddleware = (requiredRole) => {
       const userDoc = await db.collection("users").doc(userId).get();
 
       if (!userDoc.exists) {
-        return res.status(400).json({ message: "User not found" });
+        return res.status(404).json({ message: "User not found" });
       }
 
-      const userData = userDoc.data();
+      const user = userDoc.data();
 
-      if (userData.role !== requiredRole) {
-        return res.status(400).json({ message: "Access denied" });
+      if (!allowedRoles.includes(user.role)) {
+        return res.status(403).json({ message: "Access denied" });
       }
 
       next();
