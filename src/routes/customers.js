@@ -10,7 +10,7 @@ router.post(
   customersHandler.createCustomer
 );
 
-// Admin only - get all customers
+
 router.get(
   "/",
   authMiddleware,
